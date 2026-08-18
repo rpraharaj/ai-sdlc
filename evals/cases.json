@@ -1,0 +1,110 @@
+[
+  {
+    "id": "write-requirements-stops-without-prd",
+    "skill": "write-requirements",
+    "assert": "skill_contains",
+    "needles": ["stop", "write-prd"]
+  },
+  {
+    "id": "write-opportunity-needs-evidence",
+    "skill": "write-opportunity",
+    "assert": "skill_contains",
+    "needles": ["stop", "evidence"]
+  },
+  {
+    "id": "synthesize-discovery-no-invented-personas",
+    "skill": "synthesize-discovery",
+    "assert": "skill_contains",
+    "needles": ["stop", "source"]
+  },
+  {
+    "id": "write-nfr-unknown-not-invented",
+    "skill": "write-nfr",
+    "assert": "skill_contains",
+    "needles": ["unknown", "do not invent"]
+  },
+  {
+    "id": "write-status-no-invented-rag",
+    "skill": "write-status",
+    "assert": "skill_contains",
+    "needles": ["RAG", "unassigned", "need human"]
+  },
+  {
+    "id": "update-raid-requires-source",
+    "skill": "update-raid",
+    "assert": "skill_contains",
+    "needles": ["source"]
+  },
+  {
+    "id": "plan-increment-requires-capacity",
+    "skill": "plan-increment",
+    "assert": "skill_contains",
+    "needles": ["stop", "capacity"]
+  },
+  {
+    "id": "plan-rollback-spoken-sentence",
+    "skill": "plan-rollback",
+    "assert": "skill_contains",
+    "needles": ["spoken"]
+  },
+  {
+    "id": "write-integration-contract-no-same-step-break",
+    "skill": "write-integration-contract",
+    "assert": "skill_contains",
+    "needles": ["Remove/rename", "human"]
+  },
+  {
+    "id": "draft-steerco-no-new-facts",
+    "skill": "draft-steerco",
+    "assert": "skill_contains",
+    "needles": ["stop", "write-status"]
+  },
+  {
+    "id": "prd-good-has-bar",
+    "fixture": "evals/fixtures/prd-good.md",
+    "assert": "file_contains",
+    "needles": ["<!-- eval-pass: success-checks -->", "## Success", "## Non-goals", "- [ ]"]
+  },
+  {
+    "id": "prd-bad-is-labeled",
+    "fixture": "evals/fixtures/prd-bad.md",
+    "assert": "file_contains",
+    "needles": ["<!-- eval-fail: invented-users -->", "<!-- eval-fail: missing-success -->"]
+  },
+  {
+    "id": "prd-bad-must-not-look-good",
+    "fixture": "evals/fixtures/prd-bad.md",
+    "assert": "file_lacks",
+    "needles": ["<!-- eval-pass:"]
+  },
+  {
+    "id": "requirements-good-traces",
+    "fixture": "evals/fixtures/requirements-good.md",
+    "assert": "file_contains",
+    "needles": ["<!-- eval-pass: traces -->", "PRD goal", "R-1"]
+  },
+  {
+    "id": "requirements-bad-is-labeled",
+    "fixture": "evals/fixtures/requirements-bad.md",
+    "assert": "file_contains",
+    "needles": ["<!-- eval-fail: missing-traces -->", "**PRD:** (none)"]
+  },
+  {
+    "id": "raid-good-sourced",
+    "fixture": "evals/fixtures/raid-good.md",
+    "assert": "file_contains",
+    "needles": ["<!-- eval-pass: sourced-rows -->", "evals/fixtures/prd-good.md"]
+  },
+  {
+    "id": "status-invented-is-labeled",
+    "fixture": "evals/fixtures/status-invented.md",
+    "assert": "file_contains",
+    "needles": ["<!-- eval-fail: invented-progress -->", "**RAG:** green"]
+  },
+  {
+    "id": "nfr-invented-is-labeled",
+    "fixture": "evals/fixtures/nfr-invented.md",
+    "assert": "file_contains",
+    "needles": ["<!-- eval-fail: invented-slo -->", "99.99%"]
+  }
+]

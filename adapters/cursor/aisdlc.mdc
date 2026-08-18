@@ -1,0 +1,6 @@
+---
+description: Follow the repo AGENTS.md and shared Agent Skills.
+alwaysApply: true
+---
+
+Read `./AGENTS.md`. Project skills live in `.agents/skills/`. Do not duplicate those procedures in this file.
