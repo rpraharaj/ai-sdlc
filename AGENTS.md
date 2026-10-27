@@ -35,4 +35,6 @@ This repository is the **source** of a portable AI SDLC pack.
 - `adapters/` — client pointers to `AGENTS.md` and `.agents/skills/`
 - `evals/` — fixtures + static cases (`scripts/check-evals.py`)
 - `docs/` — PRD, architecture, design, reference
-- `scripts/check-pack.py` — pack validator (includes evals)
+- `scripts/check-pack.py` — pack validator (includes static evals and validator/installer regression tests)
+- `scripts/install-pack.py` — non-overwriting initial installer; dry run unless `--apply`
+- `docs/reference/pilot.md` — consuming-program pilot evidence and exit criteria

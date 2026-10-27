@@ -9,7 +9,7 @@ description: >
 license: MIT
 metadata:
   pack: ai-sdlc
-  version: "0.3"
+  version: "0.4.0"
   stage: "50-verify"
 ---
 
@@ -29,6 +29,7 @@ Gate the **current change**. Do not add features. Do not declare ready without t
 
 - A non-empty diff
 - `AGENTS.md` commands
+- `context/definition-of-done.md` and `context/decision-rights.md` when installed; identify any missing required check or approval policy before a verdict
 
 If the diff is empty, **stop**.
 
@@ -39,11 +40,11 @@ If the diff is empty, **stop**.
 
 ## Procedure
 
-1. Collect the diff (working tree vs HEAD, or named branch vs merge-base with default base).
-2. Run mechanical checks from `AGENTS.md` in order: format, lint, typecheck, focused tests, Test. Skip `(unknown)`. Record exit status.
+1. Identify the target revision and base. Include staged, unstaged, and untracked changes. For a committed branch with a clean working tree, use its merge-base with the default base; a clean tree does not mean an empty change. Stop if the base cannot be established.
+2. Inventory required checks from `AGENTS.md` and the program's definition of done. Run format, lint, typecheck, focused tests, Test, and any required build or other check. Record each as `pass`, `fail`, `not applicable`, `unknown`, or `not run`, with command, exit status, output, and target revision. `not applicable` needs a reason; `(unknown)` is not `not applicable`. Required checks that are `unknown`, `not run`, or `fail` block Ready unless a human authorized in `context/decision-rights.md` explicitly waives that check for this revision. No executable check evidence means unverified, not Ready.
 3. Secret scan via `engineering-bar`. Any match is not ready.
 4. Walk `engineering-bar` on the diff.
-5. Acceptance: first existing shape-work checks, named task, or PRD success this change was meant to satisfy.
+5. Acceptance: read the shaped slice, named task, and applicable Must requirements. Link each acceptance check to its evidence. Missing acceptance is unverified; use `n/a` only for an explicitly explained non-behavioral change. Verify required human approvals and waivers using the evidence convention in `context/decision-rights.md`. A label such as `accepted` is insufficient. If the diff changes after verification, rerun affected checks and obtain any affected approval again.
 6. Dispatch when the diff matches — load sibling `../NAME/SKILL.md`:
 
 | Diff signal | Run |
@@ -63,8 +64,9 @@ Silent skips are **not ready**.
 
 ## Quality bar
 
-- [ ] Ready only if every ran command exited 0, secrets clean, bar has no unwaived fails, acceptance pass or n/a, every dispatch pass or explicit waiver
+- [ ] Ready only if every required check and dispatch passed or has a revision-bound human waiver, secrets are clean, the bar has no unwaived fails, acceptance is evidenced or explicitly not applicable, and required approvals are current
 - [ ] Command output from this session
+- [ ] Unknown or unrun required checks cannot silently pass; target revision and base are recorded
 
 ## Done
 

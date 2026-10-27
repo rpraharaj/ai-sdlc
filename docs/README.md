@@ -1,6 +1,6 @@
 # Documentation index
 
-Wave 0–3 (pack files) are in the tree: context, skills, agents, playbooks, workflows, pointer adapters, static evals. Live two-client discovery is still on the consuming program.
+Wave 0–3 (pack files) are in the tree: context, skills, agents, playbooks, workflows, pointer adapters, static evals. Observed two-client behavior is still on the consuming program; use the pilot record below.
 
 ## Start here
 
@@ -23,6 +23,8 @@ Wave 0–3 (pack files) are in the tree: context, skills, agents, playbooks, wor
 | What to build, in what wave | [catalog](reference/catalog.md) |
 | Who runs what | [role-cards](reference/role-cards.md) |
 | How to introduce this to a program | [rollout](reference/rollout.md) |
+| Pilot cases, evidence, exit and stop criteria | [pilot](reference/pilot.md) |
+| README positioning and search-discovery follow-ups | [search discovery](reference/search-discovery.md) |
 | Who owns and versions the pack | [governance](reference/governance.md) |
 
 ## Implemented in this repo
@@ -34,7 +36,8 @@ Wave 0–3 (pack files) are in the tree: context, skills, agents, playbooks, wor
 - `workflows/` — six Markdown workflows
 - `adapters/` — pointer files (Claude, Cursor, Copilot, Gemini, Codex, generic)
 - `evals/` — fixtures + `cases.json`
-- `templates/consuming-AGENTS.md`, `INSTALL.md`
+- `templates/consuming-AGENTS.md`, `INSTALL.md`, non-overwriting `scripts/install-pack.py`
+- `scripts/test-check-pack.py` — negative validator and installation regression tests
 
 ## Not in this tree yet
 

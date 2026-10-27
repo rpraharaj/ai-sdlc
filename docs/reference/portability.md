@@ -47,7 +47,7 @@ Allowed in `skills/*/SKILL.md` frontmatter (spec fields only):
 - `license`
 - `compatibility` — environment facts (`Requires git`), **not** “Designed for Vendor X” unless the skill truly cannot run elsewhere
 - `metadata` — `pack`, `version`, `stage` as strings
-- `allowed-tools` — **avoid**. It is experimental and client-specific.
+- `allowed-tools` — experimental; excluded from this pack's accepted subset.
 
 Allowed in the body:
 
@@ -124,6 +124,6 @@ Clients load `name` + `description` for every skill at startup, then the body on
 
 Before a skill is called portable:
 
-1. Frontmatter validates against the Agent Skills spec (`skills-ref validate` or equivalent).
+1. `python3 scripts/check-pack.py` validates this pack's documented subset of Agent Skills frontmatter and its references. This is not a general YAML parser or an external spec certification.
 2. A grep over `skills/`, `context/`, `agents/`, `workflows/`, `playbooks/` finds no denylist strings.
-3. A human on a *second* client can list the skill from `.agents/skills/` without editing it.
+3. Both selected clients pass the observed [pilot smoke cases](pilot.md), including the loaded source path/version, context, artifact shape, and gate behavior. Listing a name alone is discovery evidence.

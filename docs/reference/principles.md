@@ -29,7 +29,7 @@ The model drafts. A named human decides:
 - legal / compliance
 - money and cloud-account changes
 
-A skill that needs one of these and does not have a signed answer **stops**. It does not invent the answer.
+A skill that needs one of these and does not have a signed answer **stops**. Approval and waiver evidence, revision scope, and invalidation have one home in the consuming `context/decision-rights.md`. Accepted labels are not signatures.
 
 ## 5. Evidence or stop
 

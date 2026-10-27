@@ -107,7 +107,7 @@ What a human or agent outside this repo sees:
 - `playbooks/<role>.md` — human navigation.
 - Artifact paths in the consuming repo (see [artifact chain](../reference/artifact-chain.md)).
 
-No HTTP API. No CLI required. An optional later `scripts/install.sh` that only creates symlinks is allowed; it is not required to use the pack (copying folders is enough).
+No HTTP API or runtime service. `scripts/install-pack.py` is a standard-library convenience for a dry-run-first, non-overwriting initial copy; usage, provenance, manual merge/update, and rollback are defined in [INSTALL.md](../../INSTALL.md). Consuming agents still read ordinary files.
 
 ## Data and contracts
 
@@ -175,21 +175,21 @@ See [rollout](../reference/rollout.md). Rollback: revert the install commit in t
 
 ## Config
 
-No required environment variables. Optional later:
+No required environment variables. Optional:
 
 - `AISDLC_TRACKER` — kind only (`jira` / `azure-devops` / `github-issues` / `none`), never credentials.
-- Install pin (git tag) in the consuming repo.
+- Install pin (full clean git commit, optionally named by a reviewed tag) in the consuming repo.
 
 Never values or secrets.
 
 ## Testing
 
-These must fail before a skill change is called done:
+The following checks are required before a skill change is called done:
 
-- A validator (e.g. `skills-ref validate` from the Agent Skills project) accepts every `skills/*/SKILL.md`.
+- `python3 scripts/check-pack.py` accepts every skill against the documented frontmatter subset, references, headings, and quality checks. This is structural validation, not a full external-spec certification.
 - No canonical file contains a vendor tool name from the denylist in [portability](../reference/portability.md).
 - Opening the handoff table: given only a PRD, `write-design` (or our `write-requirements`) instructions say to stop if the required input is missing — checked by a fixture, not by vibe.
-- Two-client discovery: after install, both chosen clients list `name` + `description` for a sample skill (manual until automated).
+- Observed two-client behavior: follow [pilot.md](../reference/pilot.md), including actual source paths/versions, context, valid handoffs, missing/stale approval, unknown checks, and standalone-release refusal.
 
 ## Alternatives
 
@@ -233,7 +233,7 @@ These must fail before a skill change is called done:
 - Blocking: none for writing more design docs.
 - Non-blocking:
   - First two clients for the install test.
-  - Whether a later `scripts/install.sh` is worth more than `INSTALL.md` copy steps.
+  - Whether a future update helper is justified by a real merge failure; initial non-overwriting installation is implemented in `scripts/install-pack.py`.
 
 ## Delivery
 

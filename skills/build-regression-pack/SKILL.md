@@ -8,7 +8,7 @@ description: >
 license: MIT
 metadata:
   pack: ai-sdlc
-  version: "0.2"
+  version: "0.3.0"
   stage: "50-verify"
 ---
 
@@ -44,6 +44,7 @@ Do not invent tests. Do not claim pass without command output.
 4. Open [references/regression-template.md](references/regression-template.md). Copy every heading. Write `n/a` when unused.
 5. Each item: how to run (from `AGENTS.md` or a real file path), why it is in (feature / risk). Missing coverage → `gap`, not a fake test name.
 6. Result column stays `not run` unless this session ran the command.
+7. When asked to execute the existing list, use a separate verifier handoff: run every required item against the exact release revision in the recorded environment and attach output and exit status. Missing, failed, unknown, or not-run items and uncovered risks block release unless the authorized human records a waiver using `context/decision-rights.md`. A completed test list alone is not release evidence.
 
 ## Output
 
@@ -55,6 +56,7 @@ Do not invent tests. Do not claim pass without command output.
 - [ ] Every run item is a real path or `AGENTS.md` command
 - [ ] Gaps are listed, not papered over
 - [ ] No pass without this session’s output
+- [ ] Release handoff distinguishes the planned list from executed results and names the exact revision
 - [ ] Unused headings are `n/a`
 
 ## Done

@@ -4,8 +4,9 @@ Keep every heading. Write `n/a` when a section does not apply. Do not invent the
 
 - **Status:** proposed | accepted | superseded by <id>
 - **Date:** <YYYY-MM-DD>
-- **Deciders:** <names or "this session">
+- **Deciders:** <authorized human names or unassigned>
 - **Related:** <PRD / architecture / design / other ADR paths, or none>
+- **Approval evidence / revision:** <reference in the home named by context/decision-rights.md, or unassigned; proposed until evidenced>
 
 ## Context
 

@@ -2,6 +2,8 @@
 
 Do not train 80 people on 40 skills. Train them on **their role card** and one rule: start the skill that matches the next artifact.
 
+The live acceptance record, two-client cases, measurements, and exit/stop criteria have one home: [pilot.md](pilot.md). Timings below are rollout guidance, not program commitments.
+
 ## Wave 0 — one week, no new skills
 
 - Write the five [context](layers.md) files for **one** live workstream (not templates-for-their-own-sake).
@@ -18,25 +20,25 @@ Done in this pack repo: the [twelve Wave 1 skills](catalog.md) and the `shaper` 
 Still per consuming program:
 
 - Run `shape-initiative` on one real feature, end to end, with humans signing the gates.
-- Install via `.agents/skills/` and prove discovery in **two** clients (to be named).
+- Install via `.agents/skills/` and name two clients and pass the observed pilot cases.
 
 Measure:
 
 - Time to first usable draft of each artifact
-- How often the next skill refused to start (should be > 0 if people skip steps)
+- Correct and unnecessary refusals, checked against the pilot cases
 - How many invented facts a reviewer caught
 
 ## Wave 2
 
 Done in this pack repo: Wave 2 skills, nine agent profiles, nine playbooks, six Markdown workflows.
 
-Still per consuming program: prove discovery in two clients; adapters only if a client failed that test.
+Still per consuming program: complete two-client behavior checks; adapters only if a client failed that test.
 
 ## Wave 3
 
 Done in this pack repo: pointer adapters (`adapters/`) and static eval fixtures (`evals/`, `python3 scripts/check-evals.py`).
 
-Still per consuming program: two-client discovery; adapters only if a client failed that test; kill skills unused in a 30-day pilot.
+Still per consuming program: two-client behavior checks; adapters only if discovery failed; kill skills unused in a 30-day pilot.
 
 ## What “good” looks like
 
@@ -56,4 +58,4 @@ Still per consuming program: two-client discovery; adapters only if a client fai
 
 ## Rollback
 
-Remove or pin back the pack in the consuming repo. No runtime to undeploy. Artifacts already written stay; they are ordinary Markdown.
+Follow the ownership-aware rollback/removal steps in [INSTALL.md](../../INSTALL.md). Preserve program facts, product artifacts, unrelated skills, and local modifications. No runtime needs undeployment.

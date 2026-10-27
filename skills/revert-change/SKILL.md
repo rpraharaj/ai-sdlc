@@ -7,7 +7,7 @@ description: >
 license: MIT
 metadata:
   pack: ai-sdlc
-  version: "0.3"
+  version: "0.4.0"
   stage: "60-release"
 ---
 
@@ -27,6 +27,7 @@ Undo a **known** change. Prefer a new revert commit. Do not `reset --hard` or fo
 
 - Exact target: commit SHA, merge, PR/MR, tag, or release
 - `git`
+- For a deployed target: `context/environments.md`, `context/decision-rights.md`, and the named rollback plan; missing authority or environment → stop before runtime changes
 
 If you cannot name the target, **stop**.
 
@@ -39,7 +40,7 @@ If you cannot name the target, **stop**.
 
 1. Identify the target (`git log`, `status`, current branch).
 2. Shared/pushed/merge → `git revert` (`-m 1` on a merge). Default branch → revert only, never reset. Unpushed local commits on your branch → reset only as they asked.
-3. Deploy already out: revert git, then this repo’s existing rollback. If none, say what a human must roll back.
+3. Deploy already out: identify the exact deployed revision and environment before any runtime action. Use the existing rollback plan and verify authorized human evidence using `context/decision-rights.md`. A git revert does not authorize production rollback. If policy reserves production execution for a human, hand off the reviewed command; otherwise run only the explicitly approved existing rollback. Unknown or stale authority → stop. If no rollback path exists, say what a human must decide.
 4. Secret files: a revert must not restore committed secrets without telling the user.
 5. Run `AGENTS.md` Test if cheap. If this stopped a fire, a focused check is enough — say what you did not run.
 
@@ -53,6 +54,7 @@ If you cannot name the target, **stop**.
 - [ ] Target named
 - [ ] Shared history not rewritten
 - [ ] No force to main/master/trunk
+- [ ] Runtime rollback has current target/environment approval evidence and respects the production execution policy
 
 ## Done
 

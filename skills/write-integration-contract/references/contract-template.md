@@ -4,6 +4,7 @@ Keep every heading. Write `n/a` when a section does not apply. Do not invent aut
 
 - **Status:** draft | review | accepted
 - **Date:** <YYYY-MM-DD>
+- **Source revision / approval evidence:** <revision and reference in the home named by context/decision-rights.md, or unassigned; status stays draft/review until evidenced>
 - **Author:** <names or "this session">
 - **Related:** <design / architecture / ADR / none>
 

@@ -2,6 +2,8 @@
 
 Profile: `releaser`. Production, money, and account changes stay human.
 
+Hand `fix-ci` and pipeline or product edits to `implementer`; use `incident-lead` for incident triage. A release profile does not grant production approval.
+
 | | |
 | --- | --- |
 | Jobs this week | Pipeline, environments, release, incident |

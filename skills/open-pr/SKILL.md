@@ -8,7 +8,7 @@ description: >
 license: MIT
 metadata:
   pack: ai-sdlc
-  version: "0.3"
+  version: "0.4.0"
   stage: "40-build"
 ---
 
@@ -27,7 +27,7 @@ Publish the current branch for review. Do not merge.
 ## Required inputs
 
 - `git` and commits on this branch vs the default base
-- Host CLI (`gh` / `glab`) if they want it created remotely
+- The authenticated git-host CLI this repo already uses if they want it created remotely
 
 ## Human decisions (do not invent)
 
@@ -41,7 +41,7 @@ Publish the current branch for review. Do not merge.
 2. Say if `ready-to-merge` was not run; do not block unless they asked for a merge gate.
 3. Write the body from the **diff** using [references/pr-template.md](references/pr-template.md), or the repo’s PR template if it exists.
 4. Title matches this repo’s PR style if you can see past PRs; else commit style.
-5. If `gh` or `glab` is authenticated: push and create. Else push only if they asked, then print title, body, base, and compare URL. No force-push to a shared branch.
+5. If the existing host CLI is authenticated: push and create. Else push only if they asked, then print title, body, base, and compare URL. No force-push to a shared branch.
 
 ## Output
 

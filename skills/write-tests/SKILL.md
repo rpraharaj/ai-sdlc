@@ -8,7 +8,7 @@ description: >
 license: MIT
 metadata:
   pack: ai-sdlc
-  version: "0.3"
+  version: "0.4.0"
   stage: "40-build"
 ---
 
@@ -30,6 +30,7 @@ Red-green: one failing test at a confirmed seam, then only enough code to pass. 
 ## Required inputs
 
 - The change or behavior to pin
+- Applicable requirement / defect ids and source revisions, or a named shaped-work acceptance check for a small change
 - `AGENTS.md` **Test** command, or a runner from the manifest / existing tests
 
 If you cannot find a runner or any existing test, say so. Ask before generating a new harness.
@@ -45,6 +46,7 @@ If you cannot find a runner or any existing test, say so. Ask before generating 
 3. Smallest set that would have failed before the change: happy, edge, error if the change handles failure.
 4. Do not add tautologies, private-method tests, or “does not throw” only. Expected values are independent literals or spec examples.
 5. Put tests next to existing ones of the same kind. Run the focused file, then repo **Test** if known. Keep output.
+6. Record each behavior/test's source as artifact path + requirement/defect id and revision, or the named shaped-work acceptance check. List uncovered applicable Must items as gaps; do not invent ids. Test authorship needs `implementer`; a `verifier` runs existing tests and writes reports only.
 
 ## Output
 
@@ -57,6 +59,7 @@ If you cannot find a runner or any existing test, say so. Ask before generating 
 - [ ] Runner is this repo’s
 - [ ] Command output recorded (or unverified)
 - [ ] No new framework
+- [ ] Tests trace to the named requirement, defect, or shaped-work acceptance; coverage gaps are explicit
 
 ## Done
 

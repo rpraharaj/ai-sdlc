@@ -69,7 +69,7 @@ Evidence from the shaping conversation: the program needed one portable pack (pr
   - [x] Portability rules forbid vendor tool names and lock `.agents/skills/` + `AGENTS.md` (`docs/reference/portability.md`); `scripts/check-pack.py` enforces the denylist on canonical files.
   - [x] Role cards exist as `playbooks/*.md`.
   - [x] Adapters are pointers only (`adapters/`); eval fixtures and refuse-language cases exist (`evals/`).
-  - [ ] A human listed the same skill from `.agents/skills/` in two different clients on a consuming repo.
+  - [ ] A human recorded the pilot behavior cases in two clients on a consuming repo, including loaded path/version, artifact quality, and refusal gates (`docs/reference/pilot.md`).
 
 ## User stories
 

@@ -40,7 +40,7 @@ From the repo root:
 python3 scripts/check-pack.py
 ```
 
-It must exit 0. That is the mechanical bar. Reviewers still apply the skill standard and portability denylist by reading the diff.
+It must exit 0. It includes static evals and the disposable-copy validator/installer regression suite (`scripts/test-check-pack.py`). New validator rules need both valid inputs and rejected mutations at the CLI boundary. CI runs the same command. That is the mechanical bar. Reviewers still apply the skill standard and portability denylist by reading the diff.
 
 ## Pull request
 

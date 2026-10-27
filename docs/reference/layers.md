@@ -1,6 +1,6 @@
 # Layers
 
-Four executable layers, plus one human index. Detail for each file type lives in the matching standard.
+Four instruction layers, plus one human index. The host executes actions; these files do not enforce permissions by themselves. Detail for each file type lives in the matching standard.
 
 ```text
 Context (always on)     what is true about this program

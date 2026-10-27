@@ -40,14 +40,14 @@ No “you are a senior architect with 20 years…”.
 
 | Profile | Mode | MCP / CLI kinds | Used by | Must not |
 | --- | --- | --- | --- | --- |
-| `explore` | read-only (+ search commands if the host allows) | none or docs | everyone | edit files |
-| `planner` | write-docs | none | architect, tech lead (plans and specs) | implement product code |
-| `shaper` | write-docs | tracker (read) | PM, BA | change product code |
-| `implementer` | write-code + execute | git | UI + backend | merge; prod deploy |
-| `reviewer` | read-only | git | anyone reviewing | edit the diff it reviews |
-| `verifier` | execute tests; no product edits | CI | QA, authors | delete or skip a failing test |
-| `releaser` | execute in non-prod; prod is gated | CI, observability | DevOps | unattended prod; money; account changes |
-| `coordinator` | write-docs (status) | tracker, chat-draft | program/project manager | change code or architecture |
+| `explore` | read-only (+ search commands if the host allows) | docs, git (read) | everyone | edit files |
+| `planner` | write-docs + read/search; managed AGENTS map allowed | docs, git (read) | architect, tech lead (plans and specs) | implement product code |
+| `shaper` | write-docs + read/search | docs, git (read), tracker (read) | PM, BA | change product code |
+| `implementer` | write-code + execute | docs, git, CI (read), browser (verify) | UI + backend | merge; prod deploy |
+| `reviewer` | read-only product; separate review reports | docs, git (read), browser (inspect) | anyone reviewing | edit the diff it reviews |
+| `verifier` | run existing checks; QA reports only | docs, git (read), CI, browser | QA, authors | delete or skip a failing test |
+| `releaser` | approved release path; metadata/docs only | docs, git, CI, observability | DevOps | unattended prod; money; account changes |
+| `coordinator` | write-docs + read status; no test execution | tracker (read), git (read), CI (read), chat-draft | program/project manager | change code or architecture |
 | `incident-lead` | read runtime + write incident doc | observability | DevOps, on-call | silent prod changes |
 
 That is the full set. UI developer and backend developer share `implementer`. Package-level `AGENTS.md` in the consuming repo teaches the stack.
@@ -71,10 +71,12 @@ Personas (in `agents/personas/`):
 | `planner` | docs write in `docs/architecture`, `docs/design`, `docs/tasks` — no product code |
 | `shaper` | normal session in `docs/` + `context/` |
 | `implementer` | agent mode, workspace write + shell |
-| `reviewer` | read-only review sub-session |
+| `reviewer` | deny product/artifact edits; allow separate review reports and prepared UI inspection |
 | `verifier` | shell allowed; write denied except test reports |
 | `releaser` | shell; prod credentials absent unless a human enables them |
-| `coordinator` | docs write + tracker MCP |
+| `coordinator` | docs write + read tracker/git/CI; fresh checks handed to verifier |
 | `incident-lead` | observability MCP + incident doc write |
 
-If the host cannot express a restriction, the **skill** still states the restriction, and the human is responsible for not granting extra tools.
+`write-tests` authorship requires implementer. Explore reports a map; planner can persist it, verifier runs checks, and implementer installs dependencies. Reviewer reports must not modify reviewed inputs. Releaser may change approved release metadata, but fix-ci and functional/pipeline edits require implementer. All skills must respect the profile envelope; a skill invocation cannot grant itself more rights.
+
+Before a pilot, record the mapping in each host using [pilot.md](pilot.md). If the host cannot express a necessary restriction, keep that action human-controlled and record the limitation.

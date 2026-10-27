@@ -8,7 +8,7 @@ description: >
 license: MIT
 metadata:
   pack: ai-sdlc
-  version: "0.3"
+  version: "0.4.0"
   stage: "20-shape"
 ---
 
@@ -51,6 +51,7 @@ If the ask is already tiny (one behavior, success is obvious), say so and offer 
 5. Problem is a hurt, not a solution. Non-goals is non-empty. Success checks are yes/no and at least one fails today. Do not invent a baseline.
 6. Must / Should / Later — do not dump a wishlist into Must. Journeys cover happy, empty, and error when user-facing.
 7. No secrets. Unknowns stay unknown.
+8. Leave status `draft` or `review` until the authorized human signs problem and success. Record source revision and approval evidence using the home in `context/decision-rights.md`; an agent must not promote its own draft to accepted. If scope or success changes, invalidate affected downstream approval and verification.
 
 ## Output
 
@@ -64,6 +65,7 @@ If the ask is already tiny (one behavior, success is obvious), say so and offer 
 - [ ] Requirements do not specify tables, frameworks, or folder layout
 - [ ] Unused headings are `n/a`
 - [ ] Next names a real skill
+- [ ] Accepted status is backed by human approval evidence for this revision
 
 ## Done
 

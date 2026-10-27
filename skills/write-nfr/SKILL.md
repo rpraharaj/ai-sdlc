@@ -8,7 +8,7 @@ description: >
 license: MIT
 metadata:
   pack: ai-sdlc
-  version: "0.1"
+  version: "0.1.0"
   stage: "30-design"
 ---
 

@@ -9,6 +9,14 @@ Keep every heading. Write `n/a` when a section does not apply. Do not invent API
 - **PRD:** <path or none>
 - **Architecture:** <path or none>
 - **ADRs:** <paths or none>
+- **Requirements / NFRs / contracts:** <applicable paths and source revisions, or small-change reason>
+- **Approval evidence:** <reference in the home named by context/decision-rights.md, or unassigned>
+
+## Requirement coverage
+
+| Requirement (path + id) | Source revision | Design slice / contract | Verification plan | Gap / blocking question |
+| --- | --- | --- | --- | --- |
+| | | | | |
 
 ## Summary
 

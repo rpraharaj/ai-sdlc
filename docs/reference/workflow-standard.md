@@ -42,15 +42,17 @@ No orchestration language in this file.
 - A step that would invent a missing artifact is a stop, not a skip.
 - Fan-out (“review these three dimensions”) is written as a list. A host adapter may run them in parallel; the Markdown still lists them.
 - Adversarial checks fail closed: missing evidence means unverified, not passed.
+- Human gate evidence and waivers follow `context/decision-rights.md` for the exact artifact revision. Resolve blocking findings before final approval; changed inputs return to affected review/checks.
+- Use only profiles that can perform the step. Test authorship is implementer; verifier executes existing tests. Standalone skills retain all applicable safety gates.
 
 ## Workflows (in `workflows/`)
 
 | Workflow | Steps (skill names) | Human gate |
 | --- | --- | --- |
-| `shape-initiative` | `write-opportunity` → `write-prd` → `write-requirements` | Product manager signs problem + success |
-| `design-initiative` | `write-architecture` (if shape changes) → `write-design` → `record-decision` → `write-dev-tasks` | Architect signs approach |
+| `shape-initiative` | `write-opportunity` → `write-prd` → `write-requirements` | Product signs problem/success; business owner + BA accept requirements |
+| `design-initiative` | `write-architecture` (if shape changes) → `write-design` → `record-decision` → review → `write-dev-tasks` | Architect signs approach |
 | `deliver-slice` | `shape-work` → `implement-change` → `write-tests` → `review-change` → `ready-to-merge` | Author + reviewer |
-| `release-train` | `ship-notes` → `write-runbook` → `plan-rollback` → `cut-release` | DevOps + product go/no-go |
+| `release-train` | `ship-notes` → `write-runbook` → `plan-rollback` → regression plan + execution → `cut-release` | DevOps + product go/no-go |
 | `weekly-program` | `update-raid` → `triage-blockers` → `write-status` | Program manager sends it |
 | `incident` | `incident-triage` → `write-runbook` (update) → `handoff` | Incident commander |
 

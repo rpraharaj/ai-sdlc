@@ -8,7 +8,7 @@ description: >
 license: MIT
 metadata:
   pack: ai-sdlc
-  version: "0.3"
+  version: "0.4.0"
   stage: "40-build"
 ---
 
@@ -27,7 +27,7 @@ Teach **one** path so the next edit is aimed. Do not implement. Do not map the w
 ## Required inputs
 
 - A named symbol, file, route, or feature. If missing, pick the hottest match and say so, or ask one question and stop.
-- `AGENTS.md` glossary if present
+- `context/glossary.md` if present (follow the pointer in `AGENTS.md`)
 
 ## Human decisions (do not invent)
 

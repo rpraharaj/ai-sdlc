@@ -7,7 +7,7 @@ description: >
 license: MIT
 metadata:
   pack: ai-sdlc
-  version: "0.2"
+  version: "0.2.0"
   stage: "70-govern"
 ---
 

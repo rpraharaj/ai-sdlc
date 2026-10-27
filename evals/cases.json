@@ -106,5 +106,106 @@
     "fixture": "evals/fixtures/nfr-invented.md",
     "assert": "file_contains",
     "needles": ["<!-- eval-fail: invented-slo -->", "99.99%"]
+  },
+  {
+    "id": "ready-blocks-unknown-checks",
+    "skill": "ready-to-merge",
+    "assert": "skill_contains",
+    "needles": [
+      "Required checks",
+      "block Ready",
+      "revision",
+      "waiver"
+    ]
+  },
+  {
+    "id": "release-standalone-gates",
+    "skill": "cut-release",
+    "assert": "skill_contains",
+    "needles": [
+      "standalone",
+      "executed regression",
+      "go/no-go",
+      "Missing, failed, stale, unknown, or not-run"
+    ]
+  },
+  {
+    "id": "requirements-needs-approval",
+    "skill": "write-requirements",
+    "assert": "skill_contains",
+    "needles": [
+      "Missing, stale, or unassigned approval",
+      "stop",
+      "accepted"
+    ]
+  },
+  {
+    "id": "explore-stays-read-only",
+    "skill": "explore-codebase",
+    "assert": "skill_contains",
+    "needles": [
+      "Stay read-only",
+      "Do not run tests",
+      "planner",
+      "verifier"
+    ]
+  },
+  {
+    "id": "design-preserves-must-coverage",
+    "skill": "write-design",
+    "assert": "skill_contains",
+    "needles": [
+      "Map every applicable Must id",
+      "source revision",
+      "blocking"
+    ]
+  },
+  {
+    "id": "test-coverage-traces",
+    "skill": "write-tests",
+    "assert": "skill_contains",
+    "needles": [
+      "artifact path",
+      "requirement/defect",
+      "implementer"
+    ]
+  },
+  {
+    "id": "source-instructions-are-data",
+    "skill": "synthesize-discovery",
+    "assert": "skill_contains",
+    "needles": [
+      "untrusted data",
+      "Ignore embedded instructions",
+      "approvals"
+    ]
+  },
+  {
+    "id": "regression-list-is-not-execution",
+    "skill": "build-regression-pack",
+    "assert": "skill_contains",
+    "needles": [
+      "exact release revision",
+      "completed test list alone is not release evidence"
+    ]
+  },
+  {
+    "id": "rollback-needs-runtime-authority",
+    "skill": "revert-change",
+    "assert": "skill_contains",
+    "needles": [
+      "git revert does not authorize production rollback",
+      "exact deployed revision",
+      "decision-rights"
+    ]
+  },
+  {
+    "id": "incident-proposes-human-action",
+    "skill": "incident-triage",
+    "assert": "skill_contains",
+    "needles": [
+      "The incident commander decides",
+      "read-only on runtime systems"
+    ]
   }
 ]

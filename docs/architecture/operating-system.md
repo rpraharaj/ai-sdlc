@@ -100,7 +100,7 @@ Optional: Model Context Protocol servers the *host* already configured (tracker,
 
 ## Deployment and environments
 
-The pack is files in git. “Deploy” means: merge to the pack repo, then install (copy, submodule, or subtree) into a consuming repo’s `.agents/skills/` and commit `AGENTS.md` pointers.
+The pack is files in git. “Deploy” means: merge to the pack repo, pin a clean source commit, then install into a consuming repo’s `.agents/skills/` and commit the context pointers and provenance inventory. The initial helper refuses overwrites; updates merge local changes as described in `INSTALL.md`.
 
 No regions, no runtime environment. Consuming programs have their own dev/test/stage/prod — described in *their* `context/environments.md`, not here.
 
@@ -160,7 +160,7 @@ Sticky choices that should get a one-page ADR if anyone later disagrees: skill i
 ## Risks and operability
 
 - Failure modes: a client ignores `.agents/skills/`; a skill invents facts; adapters drift; people bypass skills.
-- Observability: later, evals on fixture artifacts. Today, human review of drafts.
+- Observability: static fixture checks and negative validator/installer tests run today. Live artifact behavior is reviewed using the consuming-program pilot record.
 - Rollback: revert the pack commit in the consuming repo.
 - Disaster recovery (RPO/RTO if this repo has them): n/a
 

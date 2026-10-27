@@ -3,7 +3,7 @@
 - **Mode:** write-code + execute
 - **May edit product code:** yes
 - **May run commands:** yes
-- **May use tool kinds:** git
+- **May use tool kinds:** docs, git, ci (read), browser (verify)
 - **Typical skills:** `shape-work`, `implement-change`, `write-tests`, `debug`, `data-change`, `write-ui-spec`
 - **Must not:** merge; production deploy; expand and contract a stored contract in the same change; skip or delete a failing test
 

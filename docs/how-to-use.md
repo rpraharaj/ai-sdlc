@@ -6,9 +6,9 @@ This repository is **not an application**. It is a set of procedures you install
 
 Follow [INSTALL.md](../INSTALL.md). Minimum:
 
-1. Copy `context/` and fill it for **that** program (glossary, systems of record, definition of done, decision rights, environments).
-2. Copy `skills/` to `<product>/.agents/skills/`.
-3. Point the product `AGENTS.md` at `context/` (use `templates/consuming-AGENTS.md` if that repo has no `AGENTS.md` yet).
+1. Run the initial installer dry run from a reviewed, pinned source checkout; inspect collisions, then use `--apply`. Existing program rules and facts are preserved.
+2. Fill `context/` for that program and merge missing starter sections into an existing `AGENTS.md`. Record exact check commands, actual decision owners, and approval evidence.
+3. Complete [pilot.md](reference/pilot.md) in two selected clients before widening use. Source checks and client skill listing alone do not prove behavior.
 
 Do not work in *this* pack repo unless you are changing the pack itself.
 
@@ -45,6 +45,8 @@ Optional. Anyone can run skills one at a time. The sequences with human gates ar
 | Cut a release | `release-train` |
 | Weekly pulse | `weekly-program` |
 | Prod is hurting | `incident` |
+
+Resolve blocking review findings before final approval, and repeat affected checks/approval when their revision changes. Standalone release skills retain the workflow prerequisites.
 
 Humans still sign what [context/decision-rights.md](../context/decision-rights.md) names (scope, money, go-live, production).
 

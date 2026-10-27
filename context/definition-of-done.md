@@ -2,6 +2,8 @@
 
 Commands and observations, not slogans. Copy the exact commands from this consuming repo’s `AGENTS.md`. Write `(unknown)` if the repo has no command yet — do not invent `npm test`.
 
+Record each applicable check as pass, fail, not applicable (with reason), unknown, or not run. Unknown and not-run required checks block completion. Waivers and approvals follow `context/decision-rights.md` and apply only to the recorded revision. Name any required format, build, or other checks in addition to those below.
+
 ## Story / slice
 
 A slice is done when all of the following are true:
@@ -21,6 +23,8 @@ A release is done when:
 - [ ] Runbook for new failure modes exists or is `n/a` with a reason
 - [ ] Rollback sentence can be said out loud
 - [ ] Named humans signed go-live (`context/decision-rights.md`)
+- [ ] Regression results include the exact release revision, environment, commands, exit status, and output; required failures, gaps, or unrun items are resolved or explicitly waived
+- [ ] Ready evidence and go/no-go are current for the exact release revision and environment
 
 ## Hotfix
 

@@ -23,10 +23,14 @@ Opportunity  →  PRD  →  Requirements + Process map
 | From | Must name |
 | --- | --- |
 | Must requirement | a PRD goal |
-| Test case | a requirement or a defect id |
+| Test case | a requirement or defect id, or a named shaped-work acceptance check for a small change |
 | Dev task | a design slice (or a shaped-work id) |
-| Status line | a milestone or a RAID id |
+| Status line | a cited milestone/RAID id, git revision, CI run, or named artifact |
 | ADR | the decision the architecture/design left open |
+
+References use artifact path + local id and source revision so `R-1` in two initiatives cannot collide. For initiatives, design reads applicable Must requirements and maps them to slices/contracts/verification; tasks preserve these references and test reports record coverage gaps. A small clear change may use a named shaped-work acceptance check instead of inventing a PRD.
+
+Before dependent work, verify approval evidence from the home named by `context/decision-rights.md`. Changed scope, contracts, code, or release targets require affected downstream checks and approval again.
 
 ## One home per artifact type
 

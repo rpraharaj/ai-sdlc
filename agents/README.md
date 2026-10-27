@@ -1,6 +1,6 @@
 # Agent profiles
 
-Permission envelopes, not job titles. Map each file onto whatever the host calls a role, permission mode, or sub-session. See [agent-standard](../docs/reference/agent-standard.md).
+Permission envelopes, not job titles. Map each file onto whatever the host calls a role, permission mode, or sub-session. Authoring reference in the source pack: `docs/reference/agent-standard.md`.
 
 | Profile | Mode | Must not |
 | --- | --- | --- |

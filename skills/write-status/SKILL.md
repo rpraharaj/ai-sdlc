@@ -7,7 +7,7 @@ description: >
 license: MIT
 metadata:
   pack: ai-sdlc
-  version: "0.1"
+  version: "0.2.0"
   stage: "70-govern"
 ---
 
@@ -45,7 +45,7 @@ If the user wants “make it green,” **stop**. RAG is a human decision.
 2. Read `docs/govern/raid.md`. Summarize open items by id — do not rewrite RAID here.
 3. Collect evidence:
    - git: what merged in the window the user named (or say you did not look)
-   - CI / tests: the command `AGENTS.md` records, or `(unknown)` / “not run”
+   - CI / tests: read the existing result for the named revision, or request execution by `verifier`; coordinator does not run tests. Cite the command, revision, and result, or `(unknown)` / “not run”. Old results are not evidence for a newer revision.
 4. Find the home: `docs/govern/status-YYYY-MM-DD.md` (new file per date).
 5. Open [references/status-template.md](references/status-template.md). Copy every heading. Write `n/a` when unused.
 6. Each highlight, slip, and decision-needed line cites an id or a command result.

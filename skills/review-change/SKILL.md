@@ -8,7 +8,7 @@ description: >
 license: MIT
 metadata:
   pack: ai-sdlc
-  version: "0.3"
+  version: "0.4.0"
   stage: "50-verify"
 ---
 
@@ -39,7 +39,7 @@ If the diff is empty, **stop**. If it is huge, summarize by file and ask what to
 ## Procedure
 
 1. Collect the diff. Read changed files, not only hunks, when a finding depends on callers.
-2. Load `../engineering-bar/SKILL.md` and `references/bar.md` via that skill.
+2. Load `../engineering-bar/SKILL.md` and `../engineering-bar/references/bar.md`.
 3. Also look for incorrect behavior vs stated intent, missing tests (`write-tests`), authz (`security-pass`), over-engineering (`lean-review` — do not turn this into a delete-list).
 4. If a shape-work / spec exists, report spec axis separately (missing / extra / wrong).
 5. Severity: **bug** / **suggestion** / **nit**. Do not flood nits when there are bugs.

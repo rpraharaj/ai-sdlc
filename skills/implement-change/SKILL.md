@@ -8,7 +8,7 @@ description: >
 license: MIT
 metadata:
   pack: ai-sdlc
-  version: "0.3"
+  version: "0.4.0"
   stage: "40-build"
 ---
 
@@ -31,6 +31,7 @@ A clear small change (one behavior, likely files obvious) does not need a shape 
 
 - A shaped task or a clear small change
 - `AGENTS.md` commands
+- Applicable requirement/defect or shaped-work acceptance references and approved baseline when the program requires it
 
 ## Human decisions (do not invent)
 
@@ -45,6 +46,7 @@ A clear small change (one behavior, likely files obvious) does not need a shape 
 4. Load `../engineering-bar/SKILL.md`. Climb Minimum path. Search this repo for an existing helper first.
 5. Bug fix: find every caller; fix the shared cause once.
 6. Touch only files the request and its tests need. No drive-by refactors. Do not edit generated paths in `AGENTS.md`.
+   Preserve requirement/defect or shaped-work acceptance references through implementation and tests. Stop if the applicable approved baseline is missing, stale, or has unresolved blocking findings; check evidence using `context/decision-rights.md` when installed.
 7. Prove: focused test, then **Test**, then **Lint** / **Typecheck** if known. Never claim pass without this session’s output. Missing tests → `write-tests`. UI → `verify-ui`.
 8. Walk the diff against `engineering-bar`. Fix fails or get an explicit waiver.
 

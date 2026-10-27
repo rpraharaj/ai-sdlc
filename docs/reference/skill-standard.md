@@ -28,7 +28,7 @@ description: >
 license: MIT
 metadata:
   pack: ai-sdlc
-  version: "0.1"
+  version: "0.1.0"
   stage: "20-shape"
 ---
 ```
@@ -36,6 +36,10 @@ metadata:
 `description` must include **what** and **when**, plus trigger phrases. Max 1024 characters. This is how clients auto-invoke. “Helps with requirements” is invalid.
 
 Do not add vendor-only keys here. See [portability](portability.md).
+
+This pack uses a deliberately small YAML subset: top-level string fields `name`, `description`, `license`, `compatibility`, plus `metadata` with string values (required `pack`, stable semver `version`, and catalog `stage`). Use two-space metadata indentation, quoted version strings, and `>` or `|` for multiline descriptions. Duplicate keys, flow collections, aliases, tags, and experimental `allowed-tools` are rejected. This is a pack restriction within the open format, not a full YAML implementation.
+
+The validator checks real second-level headings, a routing table, a nonempty quality checklist, body length, and referenced Markdown files. A passing structural check does not certify the procedure or model behavior.
 
 ## Body shape (required sections)
 
@@ -54,7 +58,8 @@ One sentence: what this produces, and what it is not.
 
 ## Required inputs
 
-- Path to the previous artifact (or stop)
+- Path and revision of the previous artifact (or stop)
+- Applicable prerequisite approval evidence from the home named in `context/decision-rights.md`
 - Named systems from `context/systems-of-record.md` when relevant
 
 ## Human decisions (do not invent)

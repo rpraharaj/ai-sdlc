@@ -1,6 +1,6 @@
 # QA
 
-Profile: `verifier`.
+Profile: `verifier`; use `implementer` for `write-tests` authorship, then return to `verifier` to run checks.
 
 | | |
 | --- | --- |

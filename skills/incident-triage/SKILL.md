@@ -8,7 +8,7 @@ description: >
 license: MIT
 metadata:
   pack: ai-sdlc
-  version: "0.3"
+  version: "0.4.0"
   stage: "60-release"
 ---
 
@@ -38,7 +38,7 @@ Stabilize first. Do not start a feature. Do not silently patch production.
 
 1. Snapshot immediately (unknown allowed): started, symptom, expected, scope, severity, known/unknown. Template: [references/incident-template.md](references/incident-template.md).
 2. Blast radius from logs, metrics, flags, recent deploys — read, do not rewrite yet.
-3. Pick **one** primary action: rollback/flag off; mitigate; fix forward; observe. Rollback/mitigate before a clever fix.
+3. Propose **one** primary action: rollback/flag off; mitigate; fix forward; observe. The incident commander decides using `context/decision-rights.md`; record decision evidence and environment before any runtime action. This triage profile remains read-only on runtime systems. Rollback/mitigate before a clever fix.
 4. Gather only evidence that changes the next action. No secrets.
 5. Running log of actions. When contained: `debug` + `write-tests`; `handoff` if another session takes over. Workflow: `incident`.
 

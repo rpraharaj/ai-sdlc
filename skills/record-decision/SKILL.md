@@ -8,7 +8,7 @@ description: >
 license: MIT
 metadata:
   pack: ai-sdlc
-  version: "0.3"
+  version: "0.4.0"
   stage: "30-design"
 ---
 
@@ -43,6 +43,7 @@ Write when the choice is expensive to reverse. If the decision is not made, list
 2. Find the home: first `docs/adr/`, `doc/adr/`, `adr/`, `docs/decisions/`, or a path `AGENTS.md` names. Number like existing ADRs; else `0001-<slug>.md`.
 3. Open [references/adr-template.md](references/adr-template.md). Copy every heading. Write `n/a` when unused.
 4. Options include “do nothing.” At least two. Decision is one option. If the user already chose, quote them.
+   Keep status `proposed` until the authorized human decision and exact artifact revision are evidenced in the approval home named by `context/decision-rights.md`. Missing evidence → stop before claiming the choice is accepted. `this session` may describe an author, never the human decider. Changed options or consequences require affected approval again.
 5. No secrets.
 
 ## Output
@@ -56,6 +57,7 @@ Write when the choice is expensive to reverse. If the decision is not made, list
 - [ ] Decision is one option
 - [ ] Consequences include what you give up and when to revisit
 - [ ] Unused headings are `n/a`
+- [ ] Accepted status has revision-bound human approval evidence; otherwise the decision remains proposed
 
 ## Done
 

@@ -8,7 +8,7 @@ description: >
 license: MIT
 metadata:
   pack: ai-sdlc
-  version: "0.1"
+  version: "0.2.0"
   stage: "20-shape"
 ---
 
@@ -36,6 +36,7 @@ If there is no PRD (or the user cannot point at one), **stop**. Name `write-prd`
 
 - Path to the PRD (or the explicit waiver above)
 - `AGENTS.md`; `context/glossary.md` and `context/systems-of-record.md` if they exist
+- Human approval evidence for the PRD revision, or an explicit prerequisite waiver, following `context/decision-rights.md`. Missing, stale, or unassigned approval → **stop** even when a PRD file exists. An `accepted` label alone is insufficient.
 
 ## Human decisions (do not invent)
 
@@ -46,7 +47,7 @@ If there is no PRD (or the user cannot point at one), **stop**. Name `write-prd`
 ## Procedure
 
 1. Read `AGENTS.md` if present. Read `context/glossary.md` and `context/systems-of-record.md` if present.
-2. Read the PRD. List its goals and Must/Should if it has them. Do not add goals the PRD does not have.
+2. Read the PRD and verify the authorized human's approval or waiver for this revision. If decision rights or the signer cannot be established, stop. List its goals and Must/Should if it has them. Do not add goals the PRD does not have.
 3. Find the home: first existing `docs/requirements/`, a path `AGENTS.md` names, or offer to create `docs/requirements/`.
 4. Name: `docs/requirements/YYYY-MM-DD-<slug>.md`.
 5. Open [references/requirements-template.md](references/requirements-template.md). Copy every heading. Write `n/a` when unused.
@@ -56,7 +57,7 @@ If there is no PRD (or the user cannot point at one), **stop**. Name `write-prd`
    - acceptance that a stranger can check (command, UI observation, or API response)
    - priority only if the user or the PRD already set it; otherwise `unassigned` and stop for Must vs Should
 7. Systems named must appear in `context/systems-of-record.md` or be marked `not in systems-of-record`.
-8. No tables, frameworks, or folder layout (that is `write-design`). No secrets.
+8. No database-table design, framework choice, or folder layout (that is `write-design`). The requirements template's evidence tables are required. No secrets.
 
 ## Output
 
@@ -66,6 +67,7 @@ If there is no PRD (or the user cannot point at one), **stop**. Name `write-prd`
 ## Quality bar
 
 - [ ] PRD path is named at the top, or an explicit waiver is named
+- [ ] The PRD revision has authorized human approval evidence, or a recorded prerequisite waiver; the agent did not grant approval
 - [ ] Every Must traces to a PRD goal
 - [ ] Every Must has a yes/no acceptance check
 - [ ] At least one acceptance check would fail today
